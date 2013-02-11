@@ -1,0 +1,39 @@
+---
+# Number of workers that will do long-lasting operations (mostly Mock building).
+#
+num_workers: 3
+
+# Following list specifies supported operating systems - their RPM packages
+# can be stored/built/created by the server. The first one in the list is
+# automatically used as the default (preferably native).
+#
+# Actual names must match those that are appended to RPM release tags
+# (e.g. 'rubygem-mylib-1.0.0-1.fc16.src.rpm' has '1.fc16' release tag, thus
+# 'fc16' for Fedora 16). They also must be able to be translated into a name
+# of a relevant Mock config by the Mock.target_config method
+# (lib/rubysy-server/processor/mock.rb).
+# For available Mock configs see the contents of /etc/mock.
+#
+operating_systems:
+- fc17
+- fc16
+- fc15
+- fc14
+
+# Following list specifies supported CPU architectures. For these architectures
+# the application will be able to build RPM packages. The first one in the list
+# is automatically used as the default (preferably native).
+#
+# To find out what kind of architectures your system supports you can look into
+# /etc/sbin/mock and look for a hash named 'legal_archs'.
+#
+architectures:
+- i386
+- i686
+
+# The initial port for DRb inter-process communication. Note that a range of
+# ports will be used (starting from this initial number), and their number will
+# be the number of supported operating systems (one YUM repository for each)
+# plus one (for RubyGems repository).
+#
+drb_initial_port: 8787

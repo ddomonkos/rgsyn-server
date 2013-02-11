@@ -1,0 +1,6 @@
+require 'rubygems' if RUBY_VERSION < '1.9'
+require 'resque/tasks'
+require 'rgsyn-server/environment'
+require 'rgsyn-server/entity/library'
+
+#Process.setpriority(Process::PRIO_PROCESS, 0, 5)
